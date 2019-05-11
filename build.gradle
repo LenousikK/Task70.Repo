@@ -17,4 +17,7 @@ dependencies {
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
     compile 'com.google.code.gson:gson:2.8.5'
     compile group: 'io.github.pityka', name: 'fileutils_2.12', version: '1.2.2'
+    // https://mvnrepository.com/artifact/commons-io/commons-io
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+
 }

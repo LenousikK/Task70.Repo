@@ -10,5 +10,6 @@ public class LoginToTutByTest extends BeforeAfter {
         loginPage.login();
         wait.until(ExpectedConditions.presenceOfElementLocated(loginPage.labelLoggedUsername()));
         assertEquals("Selenium Test", loginPage.getTextOfLabelLoggedUsername());
+        loginPage.screenshotMaking();
     }
 }
