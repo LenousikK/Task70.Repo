@@ -1,8 +1,12 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.WebElement;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
@@ -84,5 +88,16 @@ public class LoginPage extends PageBasis {
     public String getTextOfLabelLoggedOut() {
         String getTextOfLabelLoggedOut = driver.findElement(LABEL_BUTTON_LOGOUT).getText();
         return getTextOfLabelLoggedOut;
+    }
+
+    public void screenshotMaking() {
+        File screenshotTaken = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        try {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+            String dateStamp = simpleDateFormat.format(new Date(System.currentTimeMillis()));
+            FileUtils.copyFile(screenshotTaken, new File("src/test/resources/" + dateStamp + ".png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

@@ -10,5 +10,6 @@ public class LogOutTutByTest extends BeforeAfter {
         loginPage.linkLogoutMenuItem().click();
         loginPage.buttonLogout().click();
         assertEquals("Войти", loginPage.getTextOfLabelLoggedOut());
+        loginPage.screenshotMaking();
     }
 }
